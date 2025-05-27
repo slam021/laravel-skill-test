@@ -12,62 +12,64 @@ Implement RESTful routes for a Post model using Laravel, with support for drafts
 4. Implement the required features according to the requirements below.
 5. Push your changes to your public repository.
 
-## Specifications
+## 3. Specifications
 
 - **Drafts and Scheduling**: Posts can be saved as drafts or scheduled for future publishing.
 - **Scheduled Posts**: Scheduled posts should be published automatically when the publish date comes.
+- **Authentication**: Use Laravel’s built-in session and cookie-based authentication services.
 
-## 3. Requirements
+## 4. Requirements
 
-### General
+### 4-1. General
 
 - Implement Laravel best practices.
 - For team development, commit with an appropriate commit size and write suitable commit messages.
 - View file implementations are NOT required. The responses should be JSON or redirects.
 
-### `posts.index` route
+### 4-2. `posts.index` route
 
 - Retrieve a paginated list (20 per page) of active posts.
+- Include the user data associated with each post.
 - Drafts or scheduled posts should not be included.
 - Response must be in JSON.
 
-### `posts.create` route
+### 4-3. `posts.create` route
 
 - You may skip implementing this route or return the string `posts.create`.
 
-### `posts.store` route
+### 4-4. `posts.store` route
 
 - Only authenticated users can create new posts.
 - Validate submitted data before creating the post.
 
-### `posts.show` route
+### 4-5. `posts.show` route
 
 - Retrieve a single post.
 - Response must be in JSON.
 - Return 404 if the post is draft or scheduled.
 
-### `posts.edit` route
+### 4-6. `posts.edit` route
 
 - You may skip implementing this route or return the string `posts.edit`.
 
-### `posts.update` route
+### 4-7. `posts.update` route
 
 - Only the post's author can update the post.
 - Validate submitted data before updating the post.
 
-### `posts.destroy` route
+### 4-8. `posts.destroy` route
 
 - Only the post's author can delete the post.
 
-### Testing
+### 4-9. Testing
 - Write feature (HTTP) tests for all posts routes to verify expected behavior, including both successful and failure scenarios.
 
-## 4. Hints
+## 5. Hints
 
-- The correct implementation should follow Laravel 12’s official documentation (https://laravel.com/docs/12.x). Using outdated or deprecated syntax may be considered incorrect.
-- You can use any references or AI tools, such as Laracasts, Stack Overflow, ChatGPT, Copilot, Cursor, and Devin. However, don't forget to review the official documentation and your code carefully.
-- The `posts` table is already defined in the migration file. Refer to its fields to determine how to structure submitted data and how to identify whether a post is active, a draft, or scheduled.
-- Although these routes behave like an API, you may use Laravel’s built-in session-based (cookie) authentication instead of token-based systems such as Sanctum or Passport.
+1. The correct implementation should follow Laravel 12’s official documentation (https://laravel.com/docs/12.x). Using outdated or deprecated syntax may be considered incorrect.
+2. You can use any references or AI tools, such as Laracasts, Stack Overflow, ChatGPT, Copilot, Cursor, and Devin. However, don't forget to review the official documentation and your code carefully.
+3. The `posts` table is already defined in the migration file. Refer to its fields to determine how to structure submitted data and how to identify whether a post is active, a draft, or scheduled.
+4. Although these routes behave like an API, you may use Laravel’s built-in cookie-based authentication instead of token-based systems such as Sanctum or Passport.
 
 ### Recommended environment
 
